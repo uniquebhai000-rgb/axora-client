@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Axora Client</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:ital,wght@0,400;0,600;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <img class="brand" src="assets/logo.png" alt="Axora logo">
+    <nav id="nav">
+      <button class="nav-item active" data-page="home"><i>⌂</i><span>Home</span></button>
+      <button class="nav-item" data-page="minecraft"><i>◈</i><span>Minecraft</span></button>
+      <button class="nav-item" data-page="mods"><i>✚</i><span>Mods</span></button>
+      <button class="nav-item" data-page="shaders"><i>☀</i><span>Shaders</span></button>
+      <button class="nav-item" data-page="settings"><i>⚙</i><span>Settings</span></button>
+      <button class="nav-item" data-page="about"><i>ⓘ</i><span>About</span></button>
+    </nav>
+    <div class="premium glass">
+      <div class="crown">♛</div>
+      <strong>Get Premium</strong>
+      <small>Unlock more features!</small>
+      <button class="btn-outline small" data-toast="Premium is a UI mock-up. No payments exist yet.">Go Premium</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <label class="search glass"><span>⌕</span><input id="search" placeholder="Search anything..."></label>
+      <button class="icon-btn" data-toast="No notifications yet.">🔔</button>
+    </header>
+
+    <!-- HOME -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-art"><div class="moon"></div><div class="castle"></div></div>
+        <div class="hero-text">
+          <p class="welcome">Welcome to</p>
+          <h1>Axora <em>Client</em></h1>
+          <p class="sub">Play Minecraft like never before.</p>
+          <div class="hero-actions">
+            <button class="btn-play" id="play"><span class="tri"></span>Play Minecraft<b>›</b></button>
+            <div class="select glass" id="verSelect">
+              <button class="select-btn" id="verBtn">◈ <span id="verLabel">1.21.10</span> <b>⌄</b></button>
+              <ul class="select-list" id="verList"></ul>
+            </div>
+          </div>
+        </div>
+        <aside class="profile glass">
+          <div class="avatar"><span class="visor"></span><i class="dot"></i></div>
+          <strong>AxoraPlayer</strong>
+          <span class="status">● Offline</span>
+        </aside>
+      </div>
+
+      <div class="home-grid">
+        <section class="news glass">
+          <div class="panel-head"><h2>📢 Latest News</h2><a href="#" data-toast="News archive isn't built yet.">View All ›</a></div>
+          <div class="news-row" id="newsRow"></div>
+        </section>
+        <section class="quick glass">
+          <div class="panel-head"><h2>⚙ Quick Settings</h2></div>
+          <ul class="quick-list">
+            <li><span>Java Version</span><b id="qJava">1.21.10</b></li>
+            <li><span>Allocated RAM</span><b id="qRam">4 GB</b></li>
+            <li><span>Game Directory</span><b>Default</b></li>
+          </ul>
+          <button class="btn-outline" data-go="settings">Edit Settings</button>
+        </section>
+      </div>
+    </section>
+
+    <!-- MINECRAFT -->
+    <section class="page" id="page-minecraft">
+      <h1 class="ptitle">Minecraft versions</h1>
+      <p class="note">Demo list. Downloading and installing versions comes in a later phase.</p>
+      <div class="list" id="verPage"></div>
+    </section>
+
+    <!-- MODS -->
+    <section class="page" id="page-mods">
+      <h1 class="ptitle">Mods</h1>
+      <p class="note">Demo data. Toggles only change the UI for now.</p>
+      <div class="list" id="modList"></div>
+    </section>
+
+    <!-- SHADERS -->
+    <section class="page" id="page-shaders">
+      <h1 class="ptitle">Shaders</h1>
+      <p class="note">Demo data. Pick one to see the selection state.</p>
+      <div class="list" id="shaderList"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="page" id="page-settings">
+      <h1 class="ptitle">Launcher settings</h1>
+      <div class="glass form">
+        <label>Allocated RAM: <b id="ramVal">4 GB</b>
+          <input type="range" id="ram" min="1" max="16" value="4"></label>
+        <label>Java version
+          <select id="java"><option>1.21.10</option><option>Java 21</option><option>Java 17</option></select></label>
+        <label>Game directory<input value="Default" disabled></label>
+        <button class="btn-outline" id="saveSettings">Save changes</button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page" id="page-about">
+      <h1 class="ptitle">About Axora Client</h1>
+      <div class="glass form">
+        <img src="assets/logo.png" class="about-logo" alt="">
+        <p>Axora Client v1.0.0 is a UI prototype of a Minecraft Java launcher.</p>
+        <p class="note">It cannot sign in, download or launch Minecraft yet. Those features come in later phases.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/logo.png" alt="">
+    <span>Axora Client</span><small>v1.0.0</small>
+    <span class="spacer"></span>
+    <a href="#" data-toast="Add your Discord link in index.html">Discord</a>
+    <a href="#" data-toast="Add your YouTube link in index.html">YouTube</a>
+    <a href="#" data-toast="Add your GitHub link in index.html">GitHub</a>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
